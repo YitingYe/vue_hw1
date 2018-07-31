@@ -1,0 +1,42 @@
+.bg-yellow{
+  background-color: #F8E71C;
+}
+
+.nav-black{
+  background-color: #000 !important;
+}
+
+.h1-color{
+  color: #F8E71C !important;
+  letter-spacing: 5px;
+  font-style: italic;
+  font-size: 10rem;
+  position: fixed;
+  top: 3rem;
+  left: 0;
+  -webkit-text-stroke: 3px white;
+}
+
+h4::before{
+    content: "";
+    display: inline-block;
+    width: 320px;
+    height: 1px;
+    background-color: #000;
+    position: relative;
+    bottom: 20px;
+    right: 100px;
+}
+
+.my-form{
+  border: 1px #000 solid;
+  border-radius: 10px;
+}
+
+.s-item{
+  margin: 50px 0;
+}
+
+.marg-top{
+  margin-top: 9rem;
+}

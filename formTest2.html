@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>表單雙向綁定</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheets/all.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/regular.js" integrity="sha384-t7yHmUlwFrLxHXNLstawVRBMeSLcXTbQ5hsd0ifzwGtN7ZF7RZ8ppM7Ldinuoiif" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <script src="javascripts/vendor.js"></script>
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+
+<body class="bg-lighter bg-yellow">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary nav-black fixed-top">
+        <a class="navbar-brand ml-5" href="/">Vue.js 練習</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ml-3" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">基礎教學</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">模板指令</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container marg-top">
+        <div class="row">
+            <div class="col post mt-5">
+                <!-- 練習開始 -->
+                <h1 class="mt-0 text-muted h1-color mb-3">表單雙向綁定</h1>
+                <div id="app" class="mt-5">
+                    <div class="row s-item">
+                        <div class="col-3">
+                            <h4>字串</h4>
+                        </div>
+                        <div class="col-9">
+                            <p>{{text}}</p>
+                            <input type="text" class="form-control my-form" v-model="text">
+                            <pre>{{text2}}</pre>
+                            <textarea cols="30" rows="3" class="form-control my-form" v-model="text2"></textarea>
+                        </div>
+                    </div>
+                    <div class="row s-item">
+                        <div class="col-3">
+                            <h4>Checkbox 與 Radio</h4>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="check1">
+                                <label class="form-check-label" for="check1"> 你要不要看電影 </label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="check2" value="雞" v-model="checkboxArray">
+                                <label class="form-check-label" for="check2">雞</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="check3" value="豬" v-model="checkboxArray">
+                                <label class="form-check-label" for="check3">豬</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="check4" value="牛" v-model="checkboxArray">
+                                <label class="form-check-label" for="check4">牛</label>
+                            </div>
+                            <p>晚餐火鍋裡有
+                                <span v-for="item in checkboxArray">{{ item }}</span>。</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="radio2" value="雞" v-model="singleRadio">
+                                <label class="form-check-label" for="radio2">雞</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="radio3" value="豬" v-model="singleRadio">
+                                <label class="form-check-label" for="radio3">豬</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="radio4" value="牛" v-model="singleRadio">
+                                <label class="form-check-label" for="radio4">牛</label>
+                            </div>
+                            <p>晚餐火鍋裡有 {{ singleRadio }}</p>
+                        </div>
+                    </div>
+                    <div class="row s-item">
+                        <div class="col-3">
+                            <h4>Select</h4>
+                        </div>
+                        <div class="col-9">
+                            <select name="" id="" class="form-control">
+                                <option v-for="item in selected">{{ item.food }} </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                var app = new Vue({
+                    el: '#app',
+                    data: {
+                        text: '',
+                        text2: '',
+                        textarea: '',
+                        checkbox1: false,
+                        checkboxArray: [],
+                        singleRadio: '',
+                        selected: [{ food: '雞' }, { food: '豬' }, { food: '牛' }]
+                    },
+                });
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
